@@ -32,6 +32,29 @@ tab1, tab2 = st.tabs(["📊 Market Analytics", "🔮 Salary Predictor"])
 with tab1:
 
     st.header("Global AI & Data Science Job Market Insights")
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric(
+        "📄 Total Job Listings",
+        f"{len(df):,}"
+    )
+
+    col2.metric(
+        "💰 Average Salary",
+        f"${df['salary_usd'].mean():,.0f}"
+    )
+
+    col3.metric(
+        "🌍 Countries",
+        df["company_location"].nunique()
+    )
+
+    col4.metric(
+    "👨‍💻 Job Roles",
+    df["job_title"].nunique()
+)
+
+    st.markdown("---")
 
     col1, col2 = st.columns(2)
 
@@ -222,7 +245,9 @@ with tab2:
 
         prediction = model.predict(input_encoded)[0]
 
+        st.success("Prediction completed successfully!")
+
         st.metric(
-            label="Estimated Annual Salary",
-            value=f"${prediction:,.0f}",
+            label="💰 Estimated Annual Salary",
+            value=f"${prediction:,.0f} USD",
         )
