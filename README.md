@@ -4,8 +4,6 @@ An end-to-end data science project that analyzes the AI and Data Science job mar
 
 The project combines exploratory data analysis (EDA), a Random Forest regression model, and an interactive Streamlit dashboard for real-time salary prediction.
 
-🚀 **Live Demo:** https://your-streamlit-app.streamlit.app
-
 ---
 
 ## 📌 Features
